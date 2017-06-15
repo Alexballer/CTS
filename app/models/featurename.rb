@@ -1,0 +1,2 @@
+class Featurename < ApplicationRecord
+end

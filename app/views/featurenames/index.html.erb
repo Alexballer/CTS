@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Featurenames</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @featurenames.each do |featurename| %>
+      <tr>
+        <td><%= featurename.attribute %></td>
+        <td><%= link_to 'Show', featurename %></td>
+        <td><%= link_to 'Edit', edit_featurename_path(featurename) %></td>
+        <td><%= link_to 'Destroy', featurename, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Featurename', new_featurename_path %>
