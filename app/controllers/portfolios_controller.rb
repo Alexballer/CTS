@@ -17,10 +17,10 @@ class PortfoliosController < ApplicationController
         format.html { render :new }
       end
     end
-  end
+ 
  def edit
       @portfolio_item = portfolio.find(params[:id])
-    end
+   end 
     
    def update
        @portfolio_item = portfolio.find(params[:id])
@@ -32,10 +32,25 @@ class PortfoliosController < ApplicationController
         format.html { render :edit }
       end
     end
-  end
+ 
 
       def show
          @portfolio_item = Portfolio.find(params[:id])
       end
+      
+      def destroy
+        
+        #perform the record
+        @portfolio_item = Portfolio.find(params[:id])
+        
+      #Destroy/delete the record
+        @portfolio_item.destroy
+        
+        #redirect
+      respond_to do |format|
+      format.html { redirect_to portfolios_url, notice: 'Post was removed.' }
+      end
+   end
+      
 
 end
